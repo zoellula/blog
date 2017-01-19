@@ -1,18 +1,28 @@
-<p class="title">
-	<strong>Title:</strong>
-	<%= @article.title %>
-</p>
+	<p>
+		<!--<strong>Title:</strong>-->
+		<h1><%= @article.title %></h1>
+	</p>
 
-<p>
-	<strong>Text:</strong>
-	<%= @article.text %>
-</p>
+	<p>
+		<!--<strong>Text:</strong>-->
+		<%= @article.text.html_safe %> <!--html_safe = compiler tag html-->
+	</p>
+	<br>
+	<div class="col-xs-2">
+		<%= link_to 'Edit', edit_article_path(@article), :class => "list-group-item text-center" %>
+	</div>
+	<div class="col-xs-2">
+		<%= link_to 'Back', articles_path, :class => "list-group-item text-center" %>
+	</div>
 
-<h2>Comments</h2>
-<%= render @article.comments %>
+<div class="comment">
 
-<h2>Add a comment:</h2>
-<%= render 'comments/form' %>
+	<h4>Add a comment:</h4>
+	<%= render 'comments/form' %>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<h4>Comments</h4>
+	<%= render @article.comments %>
 
 
-<%= link_to 'Edit', edit_article_path(@article) %> | <%= link_to 'Back', articles_path %>
+</div>

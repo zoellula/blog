@@ -1,3 +1,4 @@
+
 <%= form_for([@article, @article.comments.build]) do |f| %>
   <p>
     <%= f.label :commenter %><br>
@@ -8,6 +9,6 @@
     <%= f.text_area :body %>
   </p>
   <p>
-    <%= f.submit %>
+    <%= f.submit class: "list-group-item text-center col-xs-2" %>
   </p>
 <% end %>

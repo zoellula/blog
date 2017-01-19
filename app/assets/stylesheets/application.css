@@ -13,18 +13,6 @@
  *= require_tree .
  *= require_self
  */
-body {
 
- }
-div{
+//= require bootstrap
 
-}
-table{
-
-}
-th{
-	background-color: #4caf50;
-}
-.title{
-	font-size: 24px;
-}
