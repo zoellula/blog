@@ -1,0 +1,6 @@
+$('#comments').html("<%= j (render @article.comments) %>");
+<% if @comment.errors.any? %>
+	alert('errors');
+<% else  %>
+	alert('Ok');
+<% end %>

@@ -15,14 +15,11 @@
 		<%= link_to 'Back', articles_path, :class => "list-group-item text-center" %>
 	</div>
 
-<div class="comment">
-
+<div class="comm">
 	<h4>Add a comment:</h4>
-	<%= render 'comments/form' %>
+	<div id="comment-form"><%= render 'comments/form' %></div>
 	<p>&nbsp;</p>
 	<p>&nbsp;</p>
 	<h4>Comments</h4>
-	<%= render @article.comments %>
-
-
+	<div id="comments"><%= render @article.comments %></div>
 </div>
