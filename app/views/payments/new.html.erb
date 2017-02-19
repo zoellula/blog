@@ -1,0 +1,47 @@
+<%= form_tag '/payments', method: :post, id: 'new_registration', html: { class: "new_registration" } do %>
+  <%= javascript_include_tag "https://js.stripe.com/v2/" %>
+  <script type="text/javascript">
+    Stripe.setPublishableKey('pk_test_qCssKEXNmpa6c2teDic0ZAGV');
+  </script>
+  <div class="field">
+        <%= label_tag :email %>
+        <%= text_field_tag :email %>
+  </div>
+  <div class="field">
+        <%= label_tag :full_name %>
+        <%= text_field_tag :full_name %>
+  </div>
+  <div class="field">
+        <%= label_tag :company %>
+        <%= text_field_tag :company %>
+  </div>
+  <div class="field">
+        <%= label_tag :telephone %>
+        <%= text_field_tag :telephone %>
+  </div>
+  <div class="field">
+    <%= label_tag "Card Number", nil, required: true  %>
+      <div class="control-group">
+        <div class="controls">
+          <%= text_field_tag :card_number, nil, class: "input-block-level", "data-stripe" => "number" %>
+         </div>
+       </div>
+
+      <%= label_tag "Card Verification", nil, required: true %>
+      <div class="control-group">
+        <div class="controls">
+          <%= text_field_tag :card_verification, nil, class: "input-block-level", "data-stripe" => "cvv" %>
+         </div>
+       </div>
+
+      <%= label_tag "Card Expires", nil, required: true %>
+      <%= select_tag :exp_month, options_for_select(Date::MONTHNAMES.compact.each_with_index.map { |name,i| ["#{i+1} - #{name}", i+1] }), include_blank: false, "data-stripe" => "exp-month", class: "span2" %>
+      <%= select_tag :exp_year, options_for_select((Date.today.year..(Date.today.year+10)).to_a), include_blank: false, "data-stripe" => "exp-year", class: "span1" %>
+  </div>
+
+      <div class="actions">
+        <%= submit_tag "Registration Payment", class: "btn", style: "color: white;background: rgb(242, 118, 73);" %>
+      </div>
+
+      
+<% end %>

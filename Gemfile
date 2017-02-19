@@ -50,3 +50,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'tinymce-rails'
 
 gem 'devise'
+
+gem 'stripe'
